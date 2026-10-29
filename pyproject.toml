@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Codigo-Seguro"
+version = "0.2.0"
+description = "Defensive security scanner for AI-assisted web applications"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Brisseth-Surquislla"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+ast = [
+  "tree-sitter>=0.25,<0.26",
+  "tree-sitter-javascript>=0.25",
+  "tree-sitter-typescript>=0.23"
+]
+
+[project.scripts]
+cuerpo = "Cuerpo.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["Cuerpo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
